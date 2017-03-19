@@ -965,6 +965,7 @@ MonoBehaviour:
   gameOver: 0
   scorllSpeed: -5
   scoreText: {fileID: 720409793}
+  charEmote: 3
 --- !u!114 &1684262155
 MonoBehaviour:
   m_ObjectHideFlags: 0

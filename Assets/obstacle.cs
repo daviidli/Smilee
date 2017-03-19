@@ -6,6 +6,13 @@ public class obstacle : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameController.instance.GameOver();
+        if (GameController.instance.charEmote == 2)
+        {
+            GameController.instance.charEmote = 0;
+        }
+        else
+        {
+            GameController.instance.GameOver();
+        }
     }
 }

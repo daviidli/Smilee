@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smilee", "Smilee.csproj", "{BE995798-782B-4E82-F4E3-E51B0D370A69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smilee.Editor", "Smilee.Editor.csproj", "{6C80336B-1E5C-AF5E-198C-CF2C194CDDB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{BE995798-782B-4E82-F4E3-E51B0D370A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE995798-782B-4E82-F4E3-E51B0D370A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE995798-782B-4E82-F4E3-E51B0D370A69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C80336B-1E5C-AF5E-198C-CF2C194CDDB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C80336B-1E5C-AF5E-198C-CF2C194CDDB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C80336B-1E5C-AF5E-198C-CF2C194CDDB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C80336B-1E5C-AF5E-198C-CF2C194CDDB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

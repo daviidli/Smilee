@@ -31,9 +31,7 @@ public class SpikePool : MonoBehaviour {
         currentTime = Time.time;    
         if(GameController.instance.gameOver == false && (currentTime - timeSinceElapsed) > timeSinceLastSpawn)
         {
-            Debug.Log("timecheck");
             timeSinceLastSpawn = currentTime;
-            Debug.Log("hi");
             float spawnXPosition = Random.Range(spikeMinX, spikeMaxX);
             spikes[currentSpike].transform.position = new Vector2(spawnXPosition, spawnYPosition);
             currentSpike++;

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
     private int score = 0;
     public float scorllSpeed = -10f;
     public Text scoreText;
+    public int charEmote = 0;
 
 	// Use this for initialization
 	void Awake () {
@@ -31,14 +32,21 @@ public class GameController : MonoBehaviour {
 
     public void AddScore()
     {
-        if (gameOver)
-            return;
+        //if (gameOver)
+        //    return;
         score++;
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    public void SadAddScore()
+    {
+        score += 3;
+        scoreText.text = "Score : " + score.ToString() + "  :'("; 
     }
 
     public void GameOver()
     {
         gameOver = true;
+        SceneManager.LoadScene("Main");
     }
 }
