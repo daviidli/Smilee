@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
     public bool gameOver = false;
     public static GameController instance;
     private int score = 0;
-    public float scorllSpeed = -5f;
+    public float scorllSpeed = -10f;
     public Text scoreText;
 
 	// Use this for initialization
