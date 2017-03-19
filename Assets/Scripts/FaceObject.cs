@@ -16,7 +16,23 @@ public class FaceObject
     {
         faceRectangle = rect;
         emotions = ConvertScoresToEmotionDictionary(scorelist);
-        Debug.Log("Highest Emotion: " + GetHighestWeighedEmotion().ToString());
+        if (GetHighestWeighedEmotion().ToString() == "neutral")
+        {
+            GameController.instance.charEmote = 0;
+        }
+        else if (GetHighestWeighedEmotion().ToString() == "happiness")
+        {
+            GameController.instance.charEmote = 1;
+        }
+        else if (GetHighestWeighedEmotion().ToString() == "anger")
+        {
+            GameController.instance.charEmote = 2;
+        }
+        else if (GetHighestWeighedEmotion().ToString() == "sadness")
+        {
+            GameController.instance.charEmote = 3;
+        }
+        else GameController.instance.charEmote = 0;
 
     }
     /// <summary>
@@ -67,11 +83,6 @@ public class Emotion
     {
         this.name = name;
         this.value = value;
-    }
-
-    override public string ToString()
-    {
-        return name + " : " + value;
     }
 }
 

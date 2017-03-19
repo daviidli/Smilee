@@ -47,6 +47,5 @@ public class GameController : MonoBehaviour {
     public void GameOver()
     {
         gameOver = true;
-        SceneManager.LoadScene("Main");
     }
 }
