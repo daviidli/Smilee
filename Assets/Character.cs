@@ -32,6 +32,11 @@ public class Character : MonoBehaviour {
         touchingGround = true;
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        touchingGround = true;
+    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         touchingGround = false;
