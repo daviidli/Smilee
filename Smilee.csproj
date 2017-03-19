@@ -77,6 +77,8 @@
   <ItemGroup>
     <Compile Include="Assets\Character.cs" />
     <Compile Include="Assets\GameController.cs" />
+    <Compile Include="Assets\obstacle.cs" />
+    <Compile Include="Assets\obstacleScore.cs" />
     <Compile Include="Assets\repeatingbg.cs" />
     <Compile Include="Assets\scroll.cs" />
   </ItemGroup>

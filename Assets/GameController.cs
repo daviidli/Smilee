@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
     public bool gameOver = false;
     public static GameController instance;
     private int score = 0;
-    public float scorllSpeed = -1.5f;
+    public float scorllSpeed = -5f;
+    public Text scoreText;
 
 	// Use this for initialization
 	void Awake () {
@@ -32,6 +34,7 @@ public class GameController : MonoBehaviour {
         if (gameOver)
             return;
         score++;
+        scoreText.text = "Score: " + score.ToString();
     }
 
     public void GameOver()

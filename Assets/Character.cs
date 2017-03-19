@@ -6,7 +6,7 @@ public class Character : MonoBehaviour {
 
     private bool isDead = false;
     private Rigidbody2D rb2d;
-    private float JumpHeight = 300f;
+    private float JumpHeight = 400f;
     private bool doubleJump = false;
     private bool touchingGround = false;
 
