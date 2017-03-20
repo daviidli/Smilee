@@ -9,7 +9,7 @@ using UnityEngine.Windows;
 
 public class ImageToEmotionAPI : MonoBehaviour {
 
-    string EMOTIONKEY = "81a595a3061647b69236cbbedc873411"; // replace with your Emotion API Key
+    string EMOTIONKEY = "81a595a3061647b69236cbbedc873411"; 
 
     string emotionURL = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize";
 
@@ -18,16 +18,17 @@ public class ImageToEmotionAPI : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	    fileName = Path.Combine(Application.streamingAssetsPath, "myphoto.jpeg"); // Replace with your file
+	    fileName = Path.Combine("C:/Users/David/Desktop/FINALFINAL/Smilee/Assets/StreamingAssets/", GameController.instance.captureCounter.ToString() + ".png");
     }
 	
 	// Update is called once per frame
 	void Update () {
 	
         // This will be called with your specific input mechanism
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(!GameController.instance.isPaused && GameController.instance.needproc)
         {
             StartCoroutine(GetEmotionFromImages());
+            GameController.instance.needproc = false;
         }
 
 	}
