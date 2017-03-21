@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\ImageToEmotionAPI.cs" />
     <Compile Include="Assets\Scripts\ParseEmotionResponse.cs" />
     <Compile Include="Assets\Scripts\ShowImageOnPanel.cs" />
+    <Compile Include="Assets\loadNew.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JSON\readme.txt" />
