@@ -11,7 +11,7 @@ public class SpikePool : MonoBehaviour {
     private float xMin = 22f;
     private float xMed = 32f;
     private float xMax = 42f;
-    //private float limitBetween = 5f;
+    private float limitBetween = 5f;
     private float yPos = 0f;
     private float time = 0;
 
@@ -26,7 +26,7 @@ public class SpikePool : MonoBehaviour {
 	void Update () {
         time++;
         checkOutOfBounds();
-        if (time > 300f)
+        if (time > 300f && !GameController.instance.isPaused)
         {
             addObstacles(2);
             time = 0;
@@ -40,11 +40,11 @@ public class SpikePool : MonoBehaviour {
         {
             if (j % 2 == 0)
             {
-                float xPos = Random.Range(xMin, xMed);
+                float xPos = Random.Range(xMin + limitBetween, xMed);
                 xList[j] = xPos;
             } else
             {
-                float xPos = Random.Range(xMed, xMax);
+                float xPos = Random.Range(xMed + limitBetween, xMax);
                 xList[j] = xPos;
             }
         }
