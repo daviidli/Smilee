@@ -73,8 +73,6 @@ public class Character : MonoBehaviour {
                     anim.SetTrigger("Jump");
                 }
             }
-            
-
         } else {
             anim.SetTrigger("Dead");
         }

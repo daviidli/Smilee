@@ -7,21 +7,20 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
 
     public static GameController instance;
-    public bool gameOver = false;
-    public float scorllSpeed = -10f;
-    private int score = 0;
-    public Text scoreText;
-    public int charEmote = 0;
-    public bool isPaused = false;
-    public GameObject photoCanvas;
-    public int captureCounter = 10;
-    public bool needproc = false;
-    public GameObject endCanvas;
-    public bool showEnd = false;
-    public int imageLim = 0;
     public GameObject textScore;
+    public GameObject photoCanvas;
+    public Text scoreText;
+
+    public bool gameOver = false;
+    public bool isPaused = false;
+    public float scorllSpeed = -10f;
+
+    public int charEmote = 0;
+    public int captureCounter = 0;
     public bool takePic = false;
-    public string photoPath = "C:/Users/D/Documents/GitHub/Smilee/Assets/StreamingAssets/";
+    public string photoPath;
+
+    private int score = 0;
 
     // Use this for initialization
     void Awake () {
@@ -33,7 +32,9 @@ public class GameController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-	}
+
+        photoPath = Application.streamingAssetsPath;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -50,8 +51,6 @@ public class GameController : MonoBehaviour {
             isPaused = true;
             photoCanvas.SetActive(true);
             takePic = true;
-
-            needproc = true;
         }*/
     }
 
@@ -64,9 +63,7 @@ public class GameController : MonoBehaviour {
     public void GameOver()
     {
         gameOver = true;
-        //endCanvas.SetActive(true);
         textScore.SetActive(false);
-        //showEnd = true;
         SceneManager.LoadScene(2);
     }
 

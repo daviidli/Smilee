@@ -51,7 +51,6 @@ public class SpikePool : MonoBehaviour {
 
         for (int j = 0; j < i; j++)
         {
-            Debug.Log(xList[j]);
             obstacleQueue.Enqueue((GameObject)Instantiate(obstacle, new Vector2(xList[j], yPos), Quaternion.identity));
         }
     }
