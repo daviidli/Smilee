@@ -27,7 +27,7 @@ public class SpikePool : MonoBehaviour {
 	void Update () {
         currentTime = Time.time;
         checkOutOfBounds();
-        if ((currentTime - 3f) > timeSinceCurrentTime && !GameController.instance.isPaused)
+        if ((currentTime - 4f) > timeSinceCurrentTime && !GameController.instance.isPaused)
         {
             addObstacles(2);
             timeSinceCurrentTime = currentTime;
