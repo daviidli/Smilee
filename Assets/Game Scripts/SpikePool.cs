@@ -21,7 +21,7 @@ public class SpikePool : MonoBehaviour {
         obstacleQueue = new Queue<GameObject>();
         xList.Add(0);
         xList.Add(0);
-        addObstacles(2);
+        //addObstacles(2);
     }
 
 	void Update () {
@@ -32,7 +32,15 @@ public class SpikePool : MonoBehaviour {
             addObstacles(2);
             timeSinceCurrentTime = currentTime;
         }
-        
+
+        if (GameController.instance.gameOver)
+        {
+            while (obstacleQueue.Count > 0)
+            {
+                obstacleQueue.Dequeue();
+                Debug.Log("end");
+            }
+        }
     }
 
     private void addObstacles(int i)
@@ -58,6 +66,8 @@ public class SpikePool : MonoBehaviour {
 
     private void checkOutOfBounds()
     {
+        if (obstacleQueue.Count == 0)
+            return;
         while (obstacleQueue.Peek().transform.position.x <= xOutOfScreen)
         {
             Destroy(obstacleQueue.Peek());

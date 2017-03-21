@@ -23,25 +23,19 @@ public class takePhoto : MonoBehaviour
     public Texture2D heightmap;
     public Vector3 size = new Vector3(100, 10, 100);
 
-    private void Update()
+    void Update()
     {
-        if (GameController.instance.startCam)
-        {
-            GameController.instance.startCam = false;
-            webcamTexture.Play();
-        }
-        if (GameController.instance.stopCam)
-        {
-            GameController.instance.stopCam = false;
-            webcamTexture.Stop();
-        }
+        
     }
 
     void OnGUI()
     {
+        webcamTexture.Play();
         if (GUI.Button(new Rect((Screen.width / 2) - 75, Screen.height - 75, 150, 30), "Take Photo"))
         {
+            
             TakeSnapshot();
+            webcamTexture.Stop();
             GameController.instance.analyzePic = true;
             GameController.instance.unPause();
         }

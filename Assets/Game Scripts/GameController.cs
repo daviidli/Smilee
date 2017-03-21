@@ -19,8 +19,6 @@ public class GameController : MonoBehaviour {
     public int captureCounter = 0;
     public bool takePic = false;
     public bool analyzePic = false;
-    public bool startCam = false;
-    public bool stopCam = false;
     public string photoPath;
 
     private int score = 0;
@@ -52,9 +50,7 @@ public class GameController : MonoBehaviour {
         if (score % 5 == 0)
         {
             isPaused = true;
-            startCam = true;
             photoCanvas.SetActive(true);
-
         }
     }
 
@@ -67,7 +63,6 @@ public class GameController : MonoBehaviour {
     public void GameOver()
     {
         gameOver = true;
-        stopCam = true;
         textScore.SetActive(false);
         SceneManager.LoadScene(2);
     }
