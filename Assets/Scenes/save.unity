@@ -677,8 +677,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: 1f22cdd16f632e243aafd70ecf957f77, type: 3}
+    m_FontSize: 47
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -687,7 +687,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Score: 0'
 --- !u!222 &720409794
@@ -1286,13 +1286,14 @@ MonoBehaviour:
   charEmote: 1
   isPaused: 0
   photoCanvas: {fileID: 1819652409}
-  captureCounter: 0
+  captureCounter: 10
   needproc: 0
   endCanvas: {fileID: 389376213}
   showEnd: 0
   imageLim: 0
   textScore: {fileID: 1713976073}
   takePic: 0
+  photoPath: C:/Users/D/Documents/GitHub/Smilee/Assets/StreamingAssets/
 --- !u!1 &1713976073
 GameObject:
   m_ObjectHideFlags: 0

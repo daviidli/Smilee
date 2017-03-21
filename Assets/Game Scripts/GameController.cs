@@ -14,16 +14,17 @@ public class GameController : MonoBehaviour {
     public int charEmote = 0;
     public bool isPaused = false;
     public GameObject photoCanvas;
-    public int captureCounter = 0;
+    public int captureCounter = 10;
     public bool needproc = false;
     public GameObject endCanvas;
     public bool showEnd = false;
     public int imageLim = 0;
     public GameObject textScore;
     public bool takePic = false;
+    public string photoPath = "C:/Users/D/Documents/GitHub/Smilee/Assets/StreamingAssets/";
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
 		if (instance == null)
         {
             instance = this;
@@ -63,9 +64,10 @@ public class GameController : MonoBehaviour {
     public void GameOver()
     {
         gameOver = true;
-        endCanvas.SetActive(true);
+        //endCanvas.SetActive(true);
         textScore.SetActive(false);
         //showEnd = true;
+        SceneManager.LoadScene(2);
     }
 
     public void unPause()
