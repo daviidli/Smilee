@@ -3,62 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpikePool : MonoBehaviour {
-    public int spikePoolSize = 10;
-    public GameObject spikePreFab;
-    public float spawnRate = 1f;
-    public float spikeMaxX = 16;
-    public float spikeMinX = 6;
-    public float timeSinceElapsed = 5f;
-    public float minDist = 5f;
-
-    private GameObject[] spikes;
-    private Vector2 objectPoolPosition = new Vector2(15f,50f);
-    private float timeSinceLastSpawn = 0f;
-    private float currentTime = 0f;
-    private float spawnYPosition = 0f;
-    private int currentSpike = 0;
-    private float spawnXPosition = 0f;
+    public GameObject obstacle;
+    public Queue<GameObject> obstacleQueue;
     
-    // Use this for initialization
+    private List<float> xList;
+    private float xOutOfScreen = -10f;
+    private float xMin = 22f;
+    private float xMed = 32f;
+    private float xMax = 42f;
+    //private float limitBetween = 5f;
+    private float yPos = 0f;
+    private float time = 0;
+
     void Start () {
-        spikes = new GameObject[spikePoolSize];
-        for(int i = 0; i < spikePoolSize; i++)
-        {
-            spikes[i] = (GameObject)Instantiate(spikePreFab, objectPoolPosition, Quaternion.identity);
-        }
-        timeSinceLastSpawn = currentTime;
-	}
-	
-	// Update is called once per frame
+        xList = new List<float>();
+        obstacleQueue = new Queue<GameObject>();
+        xList.Add(0);
+        xList.Add(0);
+        addObstacles(2);
+    }
+
 	void Update () {
-        currentTime = Time.time;    
-        if(GameController.instance.gameOver == false && (currentTime - timeSinceElapsed) > timeSinceLastSpawn)
+        time++;
+        checkOutOfBounds();
+        if (time > 300f)
         {
-            timeSinceLastSpawn = currentTime;
-            float prevSpike;
-            if (currentSpike == 0)
-            {
-                prevSpike = spikes[5].transform.position.x;
-            }
-            else
-            {
-                prevSpike = spikes[currentSpike - 1].transform.position.x;
-            }
-            
-            do
-            {
-                    spawnXPosition = Random.Range(spikeMinX, spikeMaxX);
-                    Debug.Log("Forever");
-            } while (((spawnXPosition - prevSpike) < 5f)) ;
+            addObstacles(2);
+            time = 0;
+        }
+        
+    }
 
-            spikes[currentSpike].transform.position = new Vector2(spawnXPosition, spawnYPosition);
-            currentSpike++;
-
-            if (currentSpike >= spikePoolSize)
+    private void addObstacles(int i)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (j % 2 == 0)
             {
-                currentSpike = 0;
+                float xPos = Random.Range(xMin, xMed);
+                xList[j] = xPos;
+            } else
+            {
+                float xPos = Random.Range(xMed, xMax);
+                xList[j] = xPos;
             }
         }
-		
-	}
+
+        for (int j = 0; j < i; j++)
+        {
+            obstacleQueue.Enqueue((GameObject)Instantiate(obstacle, new Vector2(xList[j], yPos), Quaternion.identity));
+        }
+    }
+
+    private void checkOutOfBounds()
+    {
+        while (obstacleQueue.Peek().transform.position.x <= xOutOfScreen)
+        {
+            Destroy(obstacleQueue.Peek());
+            obstacleQueue.Dequeue();
+        }
+    }
 }

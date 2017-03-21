@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
     private Rigidbody2D rb2d;
-    private float JumpHeight = 300f;
+    public float JumpHeight = 5000f;
     private int doubleJump = 1;
     private bool touchingGround = false;
     private Animator anim;
@@ -73,8 +73,6 @@ public class Character : MonoBehaviour {
                     anim.SetTrigger("Jump");
                 }
             }
-            
-
         } else {
             anim.SetTrigger("Dead");
         }

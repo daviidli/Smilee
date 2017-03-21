@@ -6,24 +6,25 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    public bool gameOver = false;
     public static GameController instance;
-    private int score = 0;
-    public float scorllSpeed = -10f;
-    public Text scoreText;
-    public int charEmote = 0;
-    public bool isPaused = false;
-    public GameObject photoCanvas;
-    public int captureCounter = 0;
-    public bool needproc = false;
-    public GameObject endCanvas;
-    public bool showEnd = false;
-    public int imageLim = 0;
     public GameObject textScore;
-    public bool takePic = false;
+    public GameObject photoCanvas;
+    public Text scoreText;
 
-	// Use this for initialization
-	void Awake () {
+    public bool gameOver = false;
+    public bool isPaused = false;
+    public float scorllSpeed = -10f;
+
+    public int charEmote = 0;
+    public int captureCounter = 0;
+    public bool takePic = false;
+    public bool analyzePic = false;
+    public string photoPath;
+
+    private int score = 0;
+
+    // Use this for initialization
+    void Awake () {
 		if (instance == null)
         {
             instance = this;
@@ -32,27 +33,24 @@ public class GameController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-	}
+
+        photoPath = Application.streamingAssetsPath + "/";
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        
 	}
 
 
     public void AddScore()
     {
-        //if (gameOver)
-        //    return;
         score++;
         scoreText.text = "Score: " + score.ToString();
         if (score % 3 == 0)
         {
             isPaused = true;
             photoCanvas.SetActive(true);
-            takePic = true;
-
-            needproc = true;
         }
     }
 
@@ -65,9 +63,8 @@ public class GameController : MonoBehaviour {
     public void GameOver()
     {
         gameOver = true;
-        endCanvas.SetActive(true);
         textScore.SetActive(false);
-        //showEnd = true;
+        SceneManager.LoadScene(2);
     }
 
     public void unPause()

@@ -29,6 +29,7 @@ public class takePhoto : MonoBehaviour
         if (GUI.Button(new Rect((Screen.width / 2) - 75, Screen.height - 75, 150, 30), "Take Photo"))
         {
             TakeSnapshot();
+            GameController.instance.analyzePic = true;
             GameController.instance.unPause();
         }
     } 
@@ -50,19 +51,13 @@ public class takePhoto : MonoBehaviour
         GameController.instance.unPause();
     }*/
 
-
-
-    private string path = "C:/Users/David/Desktop/FINALFINAL/Smilee/Assets/StreamingAssets/";
-
     void TakeSnapshot()
     {
         Texture2D snap = new Texture2D(webcamTexture.width, webcamTexture.height);
         snap.SetPixels(webcamTexture.GetPixels());
         snap.Apply();
 
-        System.IO.File.WriteAllBytes(path + GameController.instance.captureCounter.ToString() + ".png", snap.EncodeToPNG());
-        Debug.Log(GameController.instance.captureCounter.ToString());
+        System.IO.File.WriteAllBytes(GameController.instance.photoPath + GameController.instance.captureCounter.ToString() + ".png", snap.EncodeToPNG());
         GameController.instance.captureCounter++;
-        Debug.Log(GameController.instance.captureCounter.ToString());
     }
 }
