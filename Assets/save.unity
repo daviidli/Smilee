@@ -1269,13 +1269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf768288a50cc949b29a19451763447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spikePoolSize: 10
-  spikePreFab: {fileID: 1355705327}
-  spawnRate: 1
-  spikeMaxX: 16
-  spikeMinX: 6
-  timeSinceElapsed: 5
-  minDist: 5
+  obstacle: {fileID: 1355705327}
+  groundMarker: {fileID: 507476005}
 --- !u!114 &1684262155
 MonoBehaviour:
   m_ObjectHideFlags: 0

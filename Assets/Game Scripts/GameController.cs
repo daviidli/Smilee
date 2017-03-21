@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    public bool gameOver = false;
     public static GameController instance;
-    private int score = 0;
+    public bool gameOver = false;
     public float scorllSpeed = -10f;
+    private int score = 0;
     public Text scoreText;
     public int charEmote = 0;
     public bool isPaused = false;
@@ -42,18 +42,16 @@ public class GameController : MonoBehaviour {
 
     public void AddScore()
     {
-        //if (gameOver)
-        //    return;
         score++;
         scoreText.text = "Score: " + score.ToString();
-        if (score % 3 == 0)
+        /*if (score % 3 == 0)
         {
             isPaused = true;
             photoCanvas.SetActive(true);
             takePic = true;
 
             needproc = true;
-        }
+        }*/
     }
 
     public void SadAddScore()
