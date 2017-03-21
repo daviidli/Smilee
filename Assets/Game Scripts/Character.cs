@@ -41,7 +41,7 @@ public class Character : MonoBehaviour {
         if (!GameController.instance.gameOver)
         {   if (GameController.instance.charEmote == 0) { //Neutal
                 JumpHeight = 300f;
-                if (Input.GetMouseButtonDown(0) && touchingGround)
+                if (Input.GetKeyDown("space") && touchingGround)
                 {
                     rb2d.velocity = (new Vector2(0, 0));
                     rb2d.AddForce(new Vector2(0, JumpHeight));
@@ -49,7 +49,7 @@ public class Character : MonoBehaviour {
                 }
             }else if (GameController.instance.charEmote == 1) { //Happy
                 JumpHeight = 300f;
-                if (Input.GetMouseButtonDown(0) && (doubleJump > 0) && !GameController.instance.isPaused)
+                if (Input.GetKeyDown("space") && (doubleJump > 0) && !GameController.instance.isPaused)
                 {
                     rb2d.velocity = (new Vector2(0, 0));
                     rb2d.AddForce(new Vector2(0, JumpHeight));
@@ -58,7 +58,7 @@ public class Character : MonoBehaviour {
                 }
             } else if (GameController.instance.charEmote == 2) { //Angry
                 JumpHeight = 300f;
-                if (Input.GetMouseButtonDown(0) && touchingGround)
+                if (Input.GetKeyDown("space") && touchingGround)
                 {
                     rb2d.velocity = (new Vector2(0, 0));
                     rb2d.AddForce(new Vector2(0, JumpHeight));
@@ -66,7 +66,7 @@ public class Character : MonoBehaviour {
                 }
             } else if (GameController.instance.charEmote == 3) { //Sad 
                 JumpHeight = 250f;
-                if (Input.GetMouseButtonDown(0) && touchingGround)
+                if (Input.GetKeyDown("space") && touchingGround)
                 {
                     rb2d.velocity = (new Vector2(0, 0));
                     rb2d.AddForce(new Vector2(0, JumpHeight));
