@@ -8,7 +8,6 @@ public class takePhoto : MonoBehaviour
     public string device;
     WebCamTexture webcamTexture;
     public RawImage liveView;
-    private ImageToEmotionAPI API;
 
     void Start()
     {
@@ -19,8 +18,6 @@ public class takePhoto : MonoBehaviour
         liveView.texture = webcamTexture;
         liveView.material.mainTexture = webcamTexture;
         webcamTexture.Play();
-
-        API = gameObject.GetComponent<ImageToEmotionAPI>();
     }
 
     public Texture2D heightmap;
@@ -32,7 +29,7 @@ public class takePhoto : MonoBehaviour
         if (GUI.Button(new Rect((Screen.width / 2) - 75, Screen.height - 75, 150, 30), "Take Photo"))
         {
             TakeSnapshot();
-            API.analyzePhoto();
+            GameController.instance.analyzePic = true;
             GameController.instance.unPause();
         }
     } 

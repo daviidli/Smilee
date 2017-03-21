@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
     public int charEmote = 0;
     public int captureCounter = 0;
     public bool takePic = false;
+    public bool analyzePic = false;
     public string photoPath;
 
     private int score = 0;
@@ -33,7 +34,7 @@ public class GameController : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        photoPath = Application.streamingAssetsPath;
+        photoPath = Application.streamingAssetsPath + "/";
     }
 	
 	// Update is called once per frame
@@ -46,12 +47,11 @@ public class GameController : MonoBehaviour {
     {
         score++;
         scoreText.text = "Score: " + score.ToString();
-        /*if (score % 3 == 0)
+        if (score % 3 == 0)
         {
             isPaused = true;
             photoCanvas.SetActive(true);
-            takePic = true;
-        }*/
+        }
     }
 
     public void SadAddScore()

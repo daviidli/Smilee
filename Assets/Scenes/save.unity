@@ -424,7 +424,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.15
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a070728aaee86fe4aa7299db4e70ff8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpHeight: 5000
 --- !u!60 &560101500
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -613,7 +614,6 @@ GameObject:
   - component: {fileID: 875871783}
   - component: {fileID: 875871782}
   - component: {fileID: 875871784}
-  - component: {fileID: 875871785}
   m_Layer: 0
   m_Name: EmotionManagers
   m_TagString: Untagged
@@ -656,18 +656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf0abfd0dfcd10469f98caa94a4cfa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &875871785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 875871781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec8cb3afd492354ebcc3b515940e981, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 0}
 --- !u!1 &1134460675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,9 +1181,10 @@ MonoBehaviour:
   gameOver: 0
   isPaused: 0
   scorllSpeed: -5
-  charEmote: 1
-  captureCounter: 10
+  charEmote: 0
+  captureCounter: 0
   takePic: 0
+  analyzePic: 0
   photoPath: C:/Users/D/Documents/GitHub/Smilee/Assets/StreamingAssets/
 --- !u!1 &1713976073
 GameObject:

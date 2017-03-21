@@ -17,7 +17,18 @@ public class ImageToEmotionAPI : MonoBehaviour {
     string responseData;
 
     void Start () {
-	    fileName = Path.Combine(GameController.instance.photoPath, GameController.instance.captureCounter.ToString() + ".png");
+	    fileName = Path.Combine(GameController.instance.photoPath, (GameController.instance.captureCounter).ToString() + ".png");
+    }
+
+    void Update()
+    {
+        if (GameController.instance.analyzePic)
+        {
+            GameController.instance.analyzePic = false;
+            fileName = Path.Combine(GameController.instance.photoPath, (GameController.instance.captureCounter - 1).ToString() + ".png");
+            Debug.Log(fileName);
+            analyzePhoto();
+        }
     }
 
     public void analyzePhoto()
