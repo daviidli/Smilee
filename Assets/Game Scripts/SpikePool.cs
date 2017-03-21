@@ -13,7 +13,8 @@ public class SpikePool : MonoBehaviour {
     private float xMax = 42f;
     private float limitBetween = 5f;
     private float yPos = 0f;
-    private float time = 0;
+    private float currentTime = 0f;
+    private float timeSinceCurrentTime = 0f;
 
     void Start () {
         xList = new List<float>();
@@ -24,12 +25,12 @@ public class SpikePool : MonoBehaviour {
     }
 
 	void Update () {
-        time++;
+        currentTime = Time.time;
         checkOutOfBounds();
-        if (time > 300f && !GameController.instance.isPaused)
+        if ((currentTime - 3f) > timeSinceCurrentTime && !GameController.instance.isPaused)
         {
             addObstacles(2);
-            time = 0;
+            timeSinceCurrentTime = currentTime;
         }
         
     }
